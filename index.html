@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="bg-primary">
+        <h2 class="text-center">Weather Dashboard</h2>
+    </header>
+    <main>
+        <div class="row">
+            <div class="container col-3">
+                <form>
+                    <div class="form-group">
+                        <label for="Search">
+                            <h4>Search for a city:</h4>
+                        </label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <button type="submit" class="btn btn-primary col-12">Search</button>
+                    <!--search history, saves cities from previous searches-->
+                    <div class="border-top border-dark" id="cityHist">
+                        #
+                    </div>
+                </form>
+            </div>
+
+            <div class="container col-8">
+                <div class="row col-12 border border-dark" id="currentCity">
+                    <div class="col-12" id="city&date">#</div>
+                    <div class="col-12" id="cityTemp">#</div>
+                    <div class="col-12" id="cityWind">#</div>
+                    <div class="col-12" id="cityHumidity">#</div>
+                    <div class="col-12" id="uvIndex">#</div>
+                </div>
+
+                <div class="row col-12" id="fiveDay">
+
+                    <h5 class="col-12">5-Day Forecast:</h5>
+                    <!--cards for 5-day forecast-->
+                    <div class="col-2" id="day1">Day 1</div>
+                    <div class="col-2" id="day2">Day 2</div>
+                    <div class="col-2" id="day3">Day 3</div>
+                    <div class="col-2" id="day4">Day 4</div>
+                    <div class="col-2" id="day5">Day 5</div>
+
+
+                </div>
+            </div>
+    </main>
+
+
+    <script src="./assets/javascript/script.css"></script>
+</body>
+
+</html>
