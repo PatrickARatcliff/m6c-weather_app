@@ -2,7 +2,7 @@
 const  cityDateEl = document.querySelector('#cityDate');
 const cityTempEl = document.querySelector('#cityTemp');
 const cityWindEl = document.querySelector('#cityWind');
-const cityHumid = document.querySelector('#cityHumid');
+const cityHumidEl = document.querySelector('#cityHumid');
 const cityUvEl = document.querySelector('#cityUv');
 //select elements for 5-day forecast cards
 const day1El = document.querySelector('#day1');
@@ -19,7 +19,7 @@ const searchBtnEl= document.querySelector('#searchBtn');
 
 //let dataResp;
 let respData = {
-    apiKey: '20ba792768bb32068bc802507f95f8c8', //api key
+    apiKey: '', //api key
     fetchData: function(city) {
     //send api request
         fetch(//create key pair for fetch url
@@ -46,7 +46,8 @@ let respData = {
         cityDateEl.textContent = `${cityName} (##/##/####)`
         cityTempEl.textContent = `Temp: ${cityTemp}`;
         cityWindEl.textContent = `Wind: ${cityWind} mph`;
-        cityTempEl.textContent = `Humidity: ${cityHumid}%`;
+        cityHumidEl.textContent = `Humidity: ${cityHumid}%`;
+        
         const cityIconEl = document.createElement('img');
         cityDateEl.appendChild(cityIconEl);
         cityIconEl.id = 'cityIcon'
