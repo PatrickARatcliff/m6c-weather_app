@@ -14,3 +14,18 @@ const day5El = document.querySelector('#day5');
 const cityHistEl = document.querySelector('#cityHist');
 const searchInputEl = document.querySelector('#searchBtn');
 const searchBtnEl= document.querySelector('#cityHist');
+//create const for fetch url
+const apiKey = '20ba792768bb32068bc802507f95f8c8'; //api key
+const searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}`; //api URL as template literal
+//fetch data request
+let fetchData = function() {
+    fetch(searchUrl)
+    .then((response)=> response.json())
+    .then((data) => console.log(data));
+
+};
+
+
+
+
+fetchData();
