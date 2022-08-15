@@ -1,52 +1,51 @@
+/*add spacing to search history container*/
 #cityHist {
     margin-top: 1em;
     padding: 1em;
 }
-
+/*add spacing to search history buttons*/
 .histEl {
     margin-bottom: 1em;
 }
-
+/*custom min-wwidth for cards to contain text*/
 .custom-card {
     min-width: 140px;
 }
-
+/*add min width fro search input and btn*/
 #asideCont {
     min-width: fit-content;
 } 
-
+/*min-width for main display*/
 #currentCity {
     min-width: 210px;
 }
-
+/*font style for current city/first line*/
 #cityDateEl {
     font-size: x-large;
     font-weight: bolder;
 }
-
+/*astyling for forecast container*/
 #head5Day {
     margin-top: 1em;
     min-width: 210px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size:x-large;
 }
+/*spacing for text in cards*/
 .carEl {
     margin: 1px;
 }
-main {
-    border-top: black;
-}
-
+/*main title style*/
 #headLine {
     font-size: 50px;
     padding: 5px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
+/*style for search box headline*/
 #search {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
+/*style for header*/
 header {
     min-width: fit-content;
     margin-bottom: 1em;

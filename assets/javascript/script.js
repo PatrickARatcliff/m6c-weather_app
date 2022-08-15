@@ -64,7 +64,7 @@ let respData = {
     }, 
        
 };
-// fetch data request for uv index
+// fetch data request for uv index, non-functional
 /*let respDataUv = {
     apiKey3: '', //api key 3
     fetchData3: function() {  
@@ -228,7 +228,7 @@ searchBtnEl.addEventListener('click', function(event) {
     localStorage.setItem('city', JSON.stringify(localStorageArr));
     //respDataUv.fetchData3();
 });
-
+//get local storge, push to array, append to page on load
 let loadHistData = function () {
     let localStorageArr = JSON.parse(localStorage.getItem('city') || `[]`);
     for (let i = 0; i < localStorageArr.length; i++) {

@@ -8,6 +8,7 @@
     <!--link bootstrap framework-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!--script for moment.js-->
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
@@ -23,6 +24,7 @@
     </header>
     <main>
         <div class="row">
+            <!--aside container-->
             <div class="container col-3" id="asideCont">
                 <form>
                     <div class="form-group">
@@ -36,7 +38,7 @@
                     <div class="border-top border-dark col-12" id="cityHist"></div>
                 </form>
             </div>
-
+            <!--current city, main display-->
             <div class="container col-8" id="cityCont">
                 <div class="row col-12 border border-dark shadow-sm p-3 mb-5 bg-white rounded" id="currentCity">
                     <div class="col-8 carEl" id="cityDate"></div>
@@ -49,6 +51,7 @@
                 <h5 class="row col-12" id="head5Day">5-Day Forecast:</h5>
                 <div class="container row col-" id="fiveDay">
                     <!--cards for 5-day forecast-->
+                    <!--DAY 1-->
                     <div class="container card custom-card col-2 border border-dark shadow-sm p-3 mb-5 bg-dark text-white rounded" id="day1">
                         <div id="day1Date" class="row carEl font-weight-bold"></div>
                         <div id="day1Icon" class="row carEl"></div>
@@ -56,6 +59,7 @@
                         <div id="day1Wind" class="row carEl"></div>
                         <div id="day1Humid" class="row carEl"></div>
                     </div>  
+                    <!--DAY 2-->
                     <div class="container card custom-card col-2 border border-dark shadow-sm p-3 mb-5 bg-dark text-white rounded"  id="day2">
                         <div id="day2Date" class="row carEl font-weight-bold "></div>
                         <div id="day2Icon" class="row carEl"></div>
@@ -63,6 +67,7 @@
                         <div id="day2Wind" class="row carEl"></div>
                         <div id="day2Humid" class="row carEl"></div>
                     </div>
+                    <!--DAY 3-->
                     <div class="container card custom-card col-2 border border-dark shadow-sm p-3 mb-5 bg-dark text-white rounded"  id="day3">
                         <div id="day3Date" class="row carEl font-weight-bold"></div>
                         <div id="day3Icon" class="row carEl"></div>
@@ -70,6 +75,7 @@
                         <div id="day3Wind" class="row carEl"></div>
                         <div id="day3Humid" class="row carEl"></div>
                     </div>
+                    <!--DAY 4-->
                     <div class="container card custom-card col-2 border border-dark shadow-sm p-3 mb-5 bg-dark text-white rounded"  id="day4">
                         <div id="day4Date" class="row carEl font-weight-bold"></div>
                         <div id="day4Icon" class="row carEl"></div>
@@ -77,6 +83,7 @@
                         <div id="day4Wind" class="row carEl"></div>
                         <div id="day4Humid" class="row carEl"></div>
                     </div>
+                    <!--DAY 5-->
                     <div class="container card custom-card col-2 border border-dark shadow-sm p-3 mb-5 bg-dark text-white rounded"  id="day5">
                         <div id="day5Date" class="row carEl font-weight-bold"></div>
                         <div id="day5Icon" class="row carEl"></div>
@@ -89,8 +96,6 @@
                 </div>
             </div>
     </main>
-
-
     <script src="./assets/javascript/script.js"></script>
 </body>
 
