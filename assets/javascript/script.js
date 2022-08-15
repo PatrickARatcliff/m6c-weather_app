@@ -23,7 +23,7 @@ let respData = {
     fetchData: function(city) {
     //send api request
         fetch(//create key pair for fetch url
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}`) //api URL as template literal)
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${this.apiKey}`) //api URL as template literal)
         //receive response in json
         .then((response) => response.json())
         //receive data, create data object
@@ -40,13 +40,14 @@ let respData = {
         const cityWind = data.wind.speed;
         const cityHumid = data.main.humidity;
         const cityIconId = data.weather[0].icon;
-
-        //const cityUv = data.
+        const currentDate = moment().format("(DD/MM/YYYY)");
+        const cityUv = data.value;
         //change text of html elements
-        cityDateEl.textContent = `${cityName} (##/##/####)`
-        cityTempEl.textContent = `Temp: ${cityTemp}`;
-        cityWindEl.textContent = `Wind: ${cityWind} mph`;
+        cityDateEl.textContent = `${cityName} ${currentDate}`
+        cityTempEl.textContent = `Temp: ${cityTemp}°F`;
+        cityWindEl.textContent = `Wind: ${cityWind} MPH`;
         cityHumidEl.textContent = `Humidity: ${cityHumid}%`;
+        cityUvEl.textContent = `UV Index: ${cityUv}`;
         
         const cityIconEl = document.createElement('img');
         cityDateEl.appendChild(cityIconEl);
@@ -59,5 +60,5 @@ let respData = {
 
 searchBtnEl.addEventListener('click', function(event) {
     event.preventDefault();
-    respData.fetchData(searchInputEl.value);
+    respData.fetchData(searchInputEl.value.trim());
 })
