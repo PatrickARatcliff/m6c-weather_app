@@ -20,7 +20,7 @@ const lonData = '';
 
 //fetch data requests
 let respData = {
-    apiKey: '20ba792768bb32068bc802507f95f8c8', //api key
+    apiKey: '', //api key
     fetchData: function(city) {
     //send api request
         fetch(
@@ -79,7 +79,7 @@ let respData = {
 };*/
 
 let resp5day = {
-    apiKey2: '0855735c74d2ba7ff8fdc6d20626c3b6', //api key
+    apiKey2: '', //api key
     fetchData: function(city) {
     //send api request
         fetch(
