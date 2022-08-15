@@ -49,4 +49,7 @@ main {
 
 header {
     min-width: fit-content;
+    margin-bottom: 1em;
+    border-bottom: solid rgb(118, 118, 118) 1px;
+    background: radial-gradient(circle, rgba(82,73,255,1) 11%, rgba(86,102,240,1) 38%, rgba(0,212,255,1) 85%);
 }
