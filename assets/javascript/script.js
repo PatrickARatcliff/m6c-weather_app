@@ -20,7 +20,7 @@ const lonData = '';
 
 //fetch data requests
 let respData = {
-    apiKey: '', //api key
+    apiKey: '20ba792768bb32068bc802507f95f8c8', //api key
     fetchData: function(city) {
     //send api request
         fetch(
@@ -80,7 +80,7 @@ let respData = {
 };*/
 
 let resp5day = {
-    apiKey2: '', //api key
+    apiKey2: '0855735c74d2ba7ff8fdc6d20626c3b6', //api key
     fetchData: function(city) {
     //send api request
         fetch(
@@ -190,17 +190,24 @@ let resp5day = {
         document.querySelector('#day5Humid').textContent = `Humidity: ${day5Humid}%`;
     },
 };
-
+//create city name buttons in search history
 let histData = {
     appendCity: function(city) {
-        const histEl = document.createElement('button');
-        histEl.classList.add('histEl','btn','btn-secondary','col-12', 'bg-dark', 'text-white');
-        histEl.type = 'button';
-        histEl.textContent = city;
-        document.querySelector('#cityHist').appendChild(histEl); 
+        const histElBtn = document.createElement('button');
+        histElBtn.classList.add('histEl','btn','btn-secondary','col-12', 'bg-dark', 'text-white');
+        histElBtn.type = 'button';
+        histElBtn.textContent = city;
+        document.querySelector('#cityHist').appendChild(histElBtn); 
+        //create listener for search history buttons
+        histElBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (event.target.classList.contains('histEl')) {
+            respData.fetchData(event.target.textContent);
+            resp5day.fetchData(event.target.textContent);
+            }
+        });
     }
 };
-
 //create listener for search button and run fetch(s)
 searchBtnEl.addEventListener('click', function(event) {
     //prevent event bubbling
@@ -210,3 +217,6 @@ searchBtnEl.addEventListener('click', function(event) {
     histData.appendCity(searchInputEl.value.trim().toUpperCase());
     //respDataUv.fetchData3();
 });
+
+
+
