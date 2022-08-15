@@ -14,10 +14,11 @@ const day5El = document.querySelector('#day5');
 const cityHistEl = document.querySelector('#cityHist');
 const searchInputEl = document.querySelector('#searchInput');
 const searchBtnEl= document.querySelector('#searchBtn');
+// dummy lat/lon data
+const latData = '39.7392';
+const lonData = '-104.9847';
 
-//fetch data request
-
-//let dataResp;
+//fetch data requests
 let respData = {
     apiKey: '', //api key
     fetchData: function(city) {
@@ -27,9 +28,7 @@ let respData = {
         //receive response in json
         .then((response) => response.json())
         //receive data, create data object
-        .then((data) => this.writeData(data)
-        );
-        
+        .then((data) => this.writeData(data)); 
     },
     //use data object to populate html elements
     writeData: function(data) {
@@ -41,24 +40,47 @@ let respData = {
         const cityHumid = data.main.humidity;
         const cityIconId = data.weather[0].icon;
         const currentDate = moment().format("(DD/MM/YYYY)");
-        const cityUv = data.value;
+        //const cityLat = data.city.coord.lat;
+        //const cityLon = data.city.coord.lon;
+        //cityLat.push(latData);
+        //cityLon.push(lonData);
         //change text of html elements
         cityDateEl.textContent = `${cityName} ${currentDate}`
         cityTempEl.textContent = `Temp: ${cityTemp}°F`;
         cityWindEl.textContent = `Wind: ${cityWind} MPH`;
         cityHumidEl.textContent = `Humidity: ${cityHumid}%`;
-        cityUvEl.textContent = `UV Index: ${cityUv}`;
-        
+        //pull icon code, create img, append to date, add icon id to src url
         const cityIconEl = document.createElement('img');
         cityDateEl.appendChild(cityIconEl);
         cityIconEl.id = 'cityIcon'
         document.querySelector('#cityIcon').src = `http://openweathermap.org/img/wn/${cityIconId}.png`;
         //console.log(cityName, cityTemp, cityWind, cityHumid)
-    },
-
+    },        
 };
-
+// fetch data request for uv index
+let respDataUv = {
+    apiKey2: '', //api key 2
+    fetchData3: function() {  
+        //send api request for api 3.0
+        fetch(//create key pair for fetch url
+        `https://api.openweathermap.org/data/3.0/onecall?lat=${latData}&lon=${lonData}&appid=${this.apiKey2}`) //api URL as template literal)
+        //receive response in json
+        .then((response) => response.json())
+        //receive data, create data 2 object
+        .then((data) => this.writeUv(data))
+    },
+    writeUv: function(data) {
+        console.log(data);console.log(data);
+        //assign data to variables
+        const cityUv = data.current.uvi;
+        //change text of html elements
+        cityUvEl.textContent = `UV Index: ${cityUv}`;
+    },
+};
+//create listener for search button and run fetch(s)
 searchBtnEl.addEventListener('click', function(event) {
+    //prevent event bubbling
     event.preventDefault();
     respData.fetchData(searchInputEl.value.trim());
-})
+    respDataUv.fetchData3();
+});
