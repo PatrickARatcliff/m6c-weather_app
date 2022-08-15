@@ -23,20 +23,18 @@ let respData = {
     apiKey: '', //api key
     fetchData: function(city) {
     //send api request
-    if (!searchInputEl.value) {
-        window.alert('Enter a vaild city name.');
-        throw response.json();
-    }  else {fetch (
+    fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${this.apiKey}`)//api URL as template literal)
             //receive response in json
         .then(function (response) {
+            ///verification of valid city name or error
             if(!response.ok) {
                 window.alert('Enter a vaild city name.');
                 return;
             } else {return response.json()}
         })
             //receive data, create data object
-        .then((data) => this.writeData(data));}
+        .then((data) => this.writeData(data))
     },
     //use data object to populate html elements
     writeData: function(data) {
@@ -231,5 +229,13 @@ searchBtnEl.addEventListener('click', function(event) {
     //respDataUv.fetchData3();
 });
 
+let loadHistData = function () {
+    let localStorageArr = JSON.parse(localStorage.getItem('city') || `[]`);
+    for (let i = 0; i < localStorageArr.length; i++) {
+        const element = localStorageArr[i];
+        histData.appendCity(element);   
+    }
+};
 
+loadHistData();
 
