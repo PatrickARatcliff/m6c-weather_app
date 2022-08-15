@@ -15,15 +15,15 @@ const cityHistEl = document.querySelector('#cityHist');
 const searchInputEl = document.querySelector('#searchInput');
 const searchBtnEl= document.querySelector('#searchBtn');
 // dummy lat/lon data
-const latData = '39.7392';
-const lonData = '-104.9847';
+const latData = '';
+const lonData = '';
 
 //fetch data requests
 let respData = {
-    apiKey: '', //api key
+    apiKey: '20ba792768bb32068bc802507f95f8c8', //api key
     fetchData: function(city) {
     //send api request
-        fetch(//create key pair for fetch url
+        fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${this.apiKey}`) //api URL as template literal)
         //receive response in json
         .then((response) => response.json())
@@ -58,11 +58,11 @@ let respData = {
     },        
 };
 // fetch data request for uv index
-let respDataUv = {
-    apiKey2: '', //api key 2
+/*let respDataUv = {
+    apiKey2: '0855735c74d2ba7ff8fdc6d20626c3b6', //api key 2
     fetchData3: function() {  
         //send api request for api 3.0
-        fetch(//create key pair for fetch url
+        fetch(
         `https://api.openweathermap.org/data/3.0/onecall?lat=${latData}&lon=${lonData}&appid=${this.apiKey2}`) //api URL as template literal)
         //receive response in json
         .then((response) => response.json())
@@ -76,11 +76,25 @@ let respDataUv = {
         //change text of html elements
         cityUvEl.textContent = `UV Index: ${cityUv}`;
     },
-};
+};*/
+
+let resp5day = {
+    apiKey2: '0855735c74d2ba7ff8fdc6d20626c3b6', //api key
+    fetchData: function(city) {
+    //send api request
+        fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.apiKey2}&cnt=5`) //api URL as template literal)
+        //receive response in json
+        .then((response) => response.json())
+        //receive data, create data object
+        .then((data) => console.log(data)); 
+    },
+}
 //create listener for search button and run fetch(s)
 searchBtnEl.addEventListener('click', function(event) {
     //prevent event bubbling
     event.preventDefault();
     respData.fetchData(searchInputEl.value.trim());
-    respDataUv.fetchData3();
+    resp5day.fetchData(searchInputEl.value.trim());
+    //respDataUv.fetchData3();
 });
