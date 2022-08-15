@@ -20,7 +20,7 @@ const lonData = '';
 
 //fetch data requests
 let respData = {
-    apiKey: '', //api key
+    apiKey: '20ba792768bb32068bc802507f95f8c8', //api key
     fetchData: function(city) {
     //send api request
         fetch(
@@ -80,7 +80,7 @@ let respData = {
 };*/
 
 let resp5day = {
-    apiKey2: '', //api key
+    apiKey2: '0855735c74d2ba7ff8fdc6d20626c3b6', //api key
     fetchData: function(city) {
     //send api request
         fetch(
@@ -209,12 +209,17 @@ let histData = {
     }
 };
 //create listener for search button and run fetch(s)
+const localStorageArr = []
 searchBtnEl.addEventListener('click', function(event) {
     //prevent event bubbling
     event.preventDefault();
     respData.fetchData(searchInputEl.value.trim());
     resp5day.fetchData(searchInputEl.value.trim());
     histData.appendCity(searchInputEl.value.trim().toUpperCase());
+    let inputCity = searchInputEl.value.trim().toUpperCase();
+    let localStorageArr = JSON.parse(localStorage.getItem('city', inputCity) || `[]`);
+    localStorageArr.push(inputCity);
+    localStorage.setItem('city', JSON.stringify(localStorageArr));
     //respDataUv.fetchData3();
 });
 
