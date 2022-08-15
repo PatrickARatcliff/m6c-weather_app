@@ -1,0 +1,52 @@
+#cityHist {
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.histEl {
+    margin-bottom: 1em;
+}
+
+.custom-card {
+    min-width: 140px;
+}
+
+#asideCont {
+    min-width: fit-content;
+} 
+
+#currentCity {
+    min-width: 210px;
+}
+
+#cityDateEl {
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+#head5Day {
+    margin-top: 1em;
+    min-width: 210px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:x-large;
+}
+.carEl {
+    margin: 1px;
+}
+main {
+    border-top: black;
+}
+
+#headLine {
+    font-size: 50px;
+    padding: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#search {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header {
+    min-width: fit-content;
+}
