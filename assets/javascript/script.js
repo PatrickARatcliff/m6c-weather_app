@@ -14,13 +14,10 @@ const day5El = document.querySelector('#day5');
 const cityHistEl = document.querySelector('#cityHist');
 const searchInputEl = document.querySelector('#searchInput');
 const searchBtnEl= document.querySelector('#searchBtn');
-// dummy lat/lon data
-const latData = '';
-const lonData = '';
 
 //fetch data requests
 let respData = {
-    apiKey: '', //api key
+    apiKey: '20ba792768bb32068bc802507f95f8c8', //api key
     fetchData: function(city) {
     //send api request
     fetch(
@@ -66,7 +63,7 @@ let respData = {
 };
 // fetch data request for uv index, non-functional
 let respDataUv = {
-    apiKey3: '', //api key 3
+    apiKey3: '084b4487d2b74bd893814588b64ca847', //api key 3
     fetchData: function(city) {  
         //send api request for api
         fetch(
@@ -82,16 +79,17 @@ let respDataUv = {
         const cityUv = data.data[0].uv;
         //change text of html elements
         cityUvEl.textContent = `UV Index: ${cityUv}`;
-        if (cityUv <= 5) {
-            cityUvEl.backgroundColor = 'green';
-        } else if (cityUv <= 10) {
-            cityUvEl.backgroundColor = 'yellow';
-        } else { ityUvEl.backgroundColor = 'red';}
+        //conditional to change uv element background color
+        if (cityUv < 2) {
+            cityUvEl.classList.add('bg-success');
+        } else if (cityUv < 8) {
+            cityUvEl.classList.add('bg-warning');
+        } else { cityUvEl.classList.add('bg-danger') ;}
     },
 };
 
 let resp5day = {
-    apiKey2: '', //api key
+    apiKey2: '0855735c74d2ba7ff8fdc6d20626c3b6', //api key
     fetchData: function(city) {
     //send api request
         fetch(
