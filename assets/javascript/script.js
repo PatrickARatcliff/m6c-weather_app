@@ -65,25 +65,30 @@ let respData = {
        
 };
 // fetch data request for uv index, non-functional
-/*let respDataUv = {
+let respDataUv = {
     apiKey3: '', //api key 3
-    fetchData3: function() {  
-        //send api request for api 3.0
+    fetchData: function(city) {  
+        //send api request for api
         fetch(
-        `https://api.openweathermap.org/data/3.0/onecall?lat=${latData}&lon=${lonData}&appid=${this.apiKey2}`) //api URL as template literal)
+        `https://api.weatherbit.io/v2.0/current?city=${city}&key=${this.apiKey3}`) //api URL as template literal)
         //receive response in json
         .then((response) => response.json())
         //receive data, create data 2 object
         .then((data) => this.writeUv(data))
     },
     writeUv: function(data) {
-        console.log(data);console.log(data);
+        console.log(data);
         //assign data to variables
-        const cityUv = data.current.uvi;
+        const cityUv = data.data[0].uv;
         //change text of html elements
         cityUvEl.textContent = `UV Index: ${cityUv}`;
+        if (cityUv <= 5) {
+            cityUvEl.backgroundColor = 'green';
+        } else if (cityUv <= 10) {
+            cityUvEl.backgroundColor = 'yellow';
+        } else { ityUvEl.backgroundColor = 'red';}
     },
-};*/
+};
 
 let resp5day = {
     apiKey2: '', //api key
@@ -209,6 +214,7 @@ let histData = {
             event.preventDefault();
             if (event.target.classList.contains('histEl')) {
             respData.fetchData(event.target.textContent);
+            respDataUv.fetchData(event.target.textContent);
             resp5day.fetchData(event.target.textContent);
             }
         });
@@ -220,6 +226,7 @@ searchBtnEl.addEventListener('click', function(event) {
     //prevent event bubbling
     event.preventDefault();
     respData.fetchData(searchInputEl.value.trim());
+    respDataUv.fetchData(searchInputEl.value.trim());
     resp5day.fetchData(searchInputEl.value.trim());
     histData.appendCity(searchInputEl.value.trim().toUpperCase());
     let inputCity = searchInputEl.value.trim().toUpperCase();
